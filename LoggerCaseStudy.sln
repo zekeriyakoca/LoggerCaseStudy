@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29409.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerCaseStudy", "LoggerCaseStudy\LoggerCaseStudy.csproj", "{EB37EDF9-3A8C-488A-B00F-E47EA06BEED7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9A52FE4E-8B2E-4084-9097-E52418FB0554} = {9A52FE4E-8B2E-4084-9097-E52418FB0554}
+		{277CB1E2-590B-48D9-A1C3-260BB360FD90} = {277CB1E2-590B-48D9-A1C3-260BB360FD90}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerCaseStudy.Infrastructure", "LoggerCaseStudy.Infrastructure\LoggerCaseStudy.Infrastructure.csproj", "{9A52FE4E-8B2E-4084-9097-E52418FB0554}"
+	ProjectSection(ProjectDependencies) = postProject
+		{277CB1E2-590B-48D9-A1C3-260BB360FD90} = {277CB1E2-590B-48D9-A1C3-260BB360FD90}
+		{2F39C1FB-C4CA-4995-8109-AFF68AB74287} = {2F39C1FB-C4CA-4995-8109-AFF68AB74287}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerCaseStudy.Domain", "LoggerCaseStudyDomain\LoggerCaseStudy.Domain.csproj", "{277CB1E2-590B-48D9-A1C3-260BB360FD90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggerCaseStudy.Util", "LoggerCaseStudy.Util\LoggerCaseStudy.Util.csproj", "{2F39C1FB-C4CA-4995-8109-AFF68AB74287}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggerCaseStudy.Test", "LoggerCaseStudy.Test\LoggerCaseStudy.Test.csproj", "{3582693D-F837-41C3-8A17-00C8E7FA9AEB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9A52FE4E-8B2E-4084-9097-E52418FB0554} = {9A52FE4E-8B2E-4084-9097-E52418FB0554}
+		{277CB1E2-590B-48D9-A1C3-260BB360FD90} = {277CB1E2-590B-48D9-A1C3-260BB360FD90}
+		{2F39C1FB-C4CA-4995-8109-AFF68AB74287} = {2F39C1FB-C4CA-4995-8109-AFF68AB74287}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EB37EDF9-3A8C-488A-B00F-E47EA06BEED7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB37EDF9-3A8C-488A-B00F-E47EA06BEED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB37EDF9-3A8C-488A-B00F-E47EA06BEED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB37EDF9-3A8C-488A-B00F-E47EA06BEED7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A52FE4E-8B2E-4084-9097-E52418FB0554}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A52FE4E-8B2E-4084-9097-E52418FB0554}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A52FE4E-8B2E-4084-9097-E52418FB0554}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A52FE4E-8B2E-4084-9097-E52418FB0554}.Release|Any CPU.Build.0 = Release|Any CPU
+		{277CB1E2-590B-48D9-A1C3-260BB360FD90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{277CB1E2-590B-48D9-A1C3-260BB360FD90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{277CB1E2-590B-48D9-A1C3-260BB360FD90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{277CB1E2-590B-48D9-A1C3-260BB360FD90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F39C1FB-C4CA-4995-8109-AFF68AB74287}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F39C1FB-C4CA-4995-8109-AFF68AB74287}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F39C1FB-C4CA-4995-8109-AFF68AB74287}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F39C1FB-C4CA-4995-8109-AFF68AB74287}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3582693D-F837-41C3-8A17-00C8E7FA9AEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3582693D-F837-41C3-8A17-00C8E7FA9AEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3582693D-F837-41C3-8A17-00C8E7FA9AEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3582693D-F837-41C3-8A17-00C8E7FA9AEB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {386CB61C-75A8-4745-A3B6-906504193E56}
+	EndGlobalSection
+EndGlobal
