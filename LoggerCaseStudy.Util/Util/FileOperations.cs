@@ -10,37 +10,26 @@ namespace LoggerCaseStudy.Util.Util
     {
         public static void WriteToJsonFile<T>(string filePath, T objectToWrite, bool append = false)
         {
-            TextWriter writer = null;
             try
             {
-                var directory = Path.GetDirectoryName(filePath);
-                if (directory == null)
-                    return;
-                Directory.CreateDirectory(directory);
-
-                if(!File.Exists(filePath))
-                {
-                    using (var file = File.Create(filePath))
-                    {
-                    }
-                }
+                CreateFileIfNotExist(filePath);
+                
                 var contentsToWriteToFile = JsonConvert.SerializeObject(objectToWrite);
-                writer = new StreamWriter(filePath, append);
-                System.Threading.Thread.Sleep(5000);
-                writer.Write(contentsToWriteToFile); 
-                writer.Write(System.Environment.NewLine);
+                using (TextWriter writer = new StreamWriter(filePath, append))
+                {
+                    writer.Write(contentsToWriteToFile);
+                    writer.Write(System.Environment.NewLine);
+                }
             }
-            catch 
+            catch (Exception ex)
             {
-            }
-            finally
-            {
-                if (writer != null)
-                    writer.Close();
+                throw ex;
             }
         }
         public static bool WaitForFile(string fullPath)
         {
+            CreateFileIfNotExist(fullPath);
+
             int numTries = 0;
             while (true)
             {
@@ -65,6 +54,19 @@ namespace LoggerCaseStudy.Util.Util
                 }
             }
             return true;
+        }
+
+        private static void CreateFileIfNotExist(string fullPath)
+        {
+            var directory = Path.GetDirectoryName(fullPath);
+            if (directory == null)
+                return;
+            Directory.CreateDirectory(directory);
+
+            if (!File.Exists(fullPath))
+            {
+                using (File.Create(fullPath)) { }
+            }
         }
     }
 }

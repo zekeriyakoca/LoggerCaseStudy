@@ -7,7 +7,6 @@ namespace LoggerCaseStudy.Interfaces
 {
     public interface ILogger
     {
-        
         Task Add(string message, object obj);
         Task Flush();
     }

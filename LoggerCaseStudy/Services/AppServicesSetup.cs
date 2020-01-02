@@ -15,9 +15,11 @@ namespace LoggerCaseStudy.Services
     {
         public void Set(IServiceCollection services)
         {
+            // Order of defination affects functionality. Next Logging methods work only if previous one fail. 
+            // Successfully logging in one method will interpret logging queue and return.
             services.AddTransient<ILoggerWorker, DBLogger>()
-                .AddTransient<ILoggerWorker, FileLogger>();// Order of defination affects functionality.
-
+                .AddTransient<ILoggerWorker, FileLogger>();
+            
             services.AddTransient<ILogger, Logger>(); 
 
             services.AddTransient<ILogRepository, LogRepository>();

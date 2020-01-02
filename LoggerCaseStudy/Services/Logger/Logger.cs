@@ -13,8 +13,6 @@ namespace LoggerCaseStudy.Services
 {
     public class Logger : ILogger
     {
-
-
         public Logger(IEnumerable<ILoggerWorker> loggerWorkers, IMemoryCache memoryCache)
         {
             this.loggerWorkers = loggerWorkers;
@@ -24,12 +22,15 @@ namespace LoggerCaseStudy.Services
         public IEnumerable<ILoggerWorker> loggerWorkers { get; }
         public IMemoryCache memoryCache { get; }
 
+        //TODO : Caching operations must be done via another Service or Repository. This approach is prefered only for Demo.
+
         // We only add logs to in-memory Cache. Background Service will handle logging to DB or file.
         public async Task Add(string message, object obj)
         {
             memoryCache.TryGetValue(AppConstants.LOG_QUEUE_KEY, out Queue<Log> queue);
             if (queue == null)
                 queue = new Queue<Log>();
+            //Temporary solution to prevent Memory Leak. Should be replaced with better approach.
             if (queue.Count > 10000)
                 await Flush();
             queue.Enqueue(new Log { Message = message, Body = JsonConvert.SerializeObject(obj) });

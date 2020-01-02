@@ -1,10 +1,7 @@
-using LoggerCaseStudy.Domain.Entities;
 using LoggerCaseStudy.Infrastructure.EntityFramework;
 using LoggerCaseStudy.Infrastructure.Repositories;
-using LoggerCaseStudy.Interfaces;
 using LoggerCaseStudy.Services;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -12,6 +9,8 @@ namespace LoggerCaseStudy.Test
 {
     public class DBLoggerShould
     {
+        public DBLogger dbLogger { get; }
+
         public DBLoggerShould()
         {
             var options = new DbContextOptionsBuilder<DataContext>()
@@ -21,10 +20,10 @@ namespace LoggerCaseStudy.Test
             var context = new DataContext(options);
 
             var mockLogRepository = new LogRepository(context);
+
             this.dbLogger = new DBLogger(mockLogRepository);
         }
 
-        public DBLogger dbLogger { get; }
 
         [Fact]
         public async Task LogToDB()

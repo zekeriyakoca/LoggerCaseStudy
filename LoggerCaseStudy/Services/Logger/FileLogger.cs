@@ -28,9 +28,9 @@ namespace LoggerCaseStudy.Services
                     return false;
                 FileOperations.WriteToJsonFile(filePath, log, true); // Logs unable to written to DB
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                return false;
             }
             return true;
         }
